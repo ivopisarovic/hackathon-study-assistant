@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,21 +23,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Position:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZY-2h-6qo">
-                                <rect key="frame" x="133.5" y="86" width="108" height="21"/>
+                                <rect key="frame" x="133" y="28" width="108" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uem-Ih-AUt">
-                                <rect key="frame" x="165" y="137" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-z5-4mv" userLabel="Map" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="180.5" width="375" height="486.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uem-Ih-AUt">
+                                <rect key="frame" x="16" y="57" width="343" height="116"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="BMS-3F-ByK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-z5-4mv" userLabel="Map" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="188" width="375" height="479"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -44,10 +48,11 @@
                             <constraint firstItem="7ZY-2h-6qo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7CL-xA-WiY"/>
                             <constraint firstItem="dIa-z5-4mv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8W3-SZ-gtv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dIa-z5-4mv" secondAttribute="bottom" id="C1O-yL-nJb"/>
-                            <constraint firstItem="7ZY-2h-6qo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="66" id="SIy-VU-LFz"/>
+                            <constraint firstItem="Uem-Ih-AUt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Sub-iB-Myh"/>
                             <constraint firstAttribute="trailing" secondItem="dIa-z5-4mv" secondAttribute="trailing" id="WTB-0s-JoL"/>
-                            <constraint firstItem="Uem-Ih-AUt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bVP-QI-KOf"/>
                             <constraint firstItem="dIa-z5-4mv" firstAttribute="top" secondItem="Uem-Ih-AUt" secondAttribute="bottom" constant="30" id="cmx-qA-qjL"/>
+                            <constraint firstItem="Uem-Ih-AUt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iGU-O2-sJc"/>
+                            <constraint firstItem="7ZY-2h-6qo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="yY4-SO-vcI"/>
                         </constraints>
                     </view>
                     <connections>

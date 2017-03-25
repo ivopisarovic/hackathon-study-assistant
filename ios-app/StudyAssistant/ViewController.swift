@@ -8,13 +8,14 @@
 
 import UIKit
 import GoogleMaps
+import RestKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var map: GMSMapView!
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     
     private var lastLocation = CLLocation();
     
@@ -37,13 +38,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0 {
+       if locations.count > 0 {
             let currentLocation = locations[0]
+            
             if compareLocations(currentLocation, lastLocation) == false {
+                
                 lastLocation = currentLocation
-                let locationText = String(currentLocation.coordinate.latitude) + " " + String(currentLocation.coordinate.longitude)
-                label.text = locationText
-                NSLog("did updated location %@", locationText)
+                
+                let json = getLocationAsJSON(currentLocation)
+                
+                NSLog("did changed location %@", json)
+                
+                label.text = json
+                sendRequest(json: json)
             }
         }
     }
@@ -54,7 +61,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             round(a.coordinate.longitude) == round(b.coordinate.longitude)
     }
     
+    private func getLocationAsJSON(_ location: CLLocation)->String {
+        let json =
+            "{\"latitude\": " + String(location.coordinate.latitude) + ", \"longitude\": " + String(location.coordinate.longitude) + ", \"username\": \"ivo\"}"
+        return json
+    }
     
+    private func sendRequest(json: String){
+        let request = ServerRequest(method: "POST", url: "http://zsmladeze.cz/aaa.php", bodyString: json)
+        request.runWithoutJSON({ (request, response, nil) in
+            NSLog("OK - request sent")
+        }, failure: { (request, response, error, nil) in
+            NSLog("FAILED - request!!! %@", error!.localizedDescription)
+        })
+    }
 
 }
 

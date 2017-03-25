@@ -14,6 +14,7 @@
 		B454AF011E867DF300BA8FCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B454AF001E867DF300BA8FCF /* Assets.xcassets */; };
 		B454AF041E867DF300BA8FCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B454AF021E867DF300BA8FCF /* LaunchScreen.storyboard */; };
 		B4EEBFF71E868B0D00FA6831 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B4EEBFF61E868B0D00FA6831 /* .gitignore */; };
+		B4EEBFF91E86951900FA6831 /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EEBFF81E86951900FA6831 /* ServerRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B454AF031E867DF300BA8FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B454AF051E867DF300BA8FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4EEBFF61E868B0D00FA6831 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B4EEBFF81E86951900FA6831 /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				B454AEFD1E867DF300BA8FCF /* Main.storyboard */,
 				B454AF001E867DF300BA8FCF /* Assets.xcassets */,
 				B454AF021E867DF300BA8FCF /* LaunchScreen.storyboard */,
+				B4EEBFF81E86951900FA6831 /* ServerRequest.swift */,
 				B454AF051E867DF300BA8FCF /* Info.plist */,
 			);
 			path = StudyAssistant;
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4EEBFF91E86951900FA6831 /* ServerRequest.swift in Sources */,
 				B454AEFC1E867DF300BA8FCF /* ViewController.swift in Sources */,
 				B454AEFA1E867DF300BA8FCF /* AppDelegate.swift in Sources */,
 			);

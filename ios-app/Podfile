@@ -12,6 +12,7 @@ pod 'SwiftyJSON', :git => 'https://github.com/jeneumeier/SwiftyJSON', :branch =>
 pod 'GoogleMaps'
 pod 'AFNetworking'
 pod 'ISO8601DateFormatterValueTransformer'
+pod 'RestKit'
 end
 
 post_install do |installer|
