@@ -38,17 +38,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-       if locations.count > 0 {
+        if locations.count > 0 {
             let currentLocation = locations[0]
-            
             if compareLocations(currentLocation, lastLocation) == false {
-                
                 lastLocation = currentLocation
-                
                 let json = getLocationAsJSON(currentLocation)
-                
                 NSLog("did changed location %@", json)
-                
                 label.text = json
                 sendRequest(json: json)
             }
@@ -62,13 +57,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     private func getLocationAsJSON(_ location: CLLocation)->String {
+        /*let json =
+            "{\"latitude\": " + String(location.coordinate.latitude) + ", \"longitude\": " + String(location.coordinate.longitude) + ", \"username\": \"ivo\"}"*/
         let json =
-            "{\"latitude\": " + String(location.coordinate.latitude) + ", \"longitude\": " + String(location.coordinate.longitude) + ", \"username\": \"ivo\"}"
+            "{\"id\": 6}"
         return json
     }
     
     private func sendRequest(json: String){
-        let request = ServerRequest(method: "POST", url: "http://zsmladeze.cz/aaa.php", bodyString: json)
+        let method = "POST"
+        
+        let urlTest = "http://zsmladeze.cz/aaa.php"
+        let urlDeploy = "http://studyassistant.azurewebsites.net/reached_school"
+        
+        let request = ServerRequest(method: method, url: urlDeploy, bodyString: json)
         request.runWithoutJSON({ (request, response, nil) in
             NSLog("OK - request sent")
         }, failure: { (request, response, error, nil) in
