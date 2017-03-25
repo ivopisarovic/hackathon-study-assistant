@@ -1,0 +1,5 @@
+/Pods
+/docs
+/build
+xcuserdata
+/Podfile.lock

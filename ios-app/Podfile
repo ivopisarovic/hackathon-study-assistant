@@ -1,0 +1,23 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/jeneumeier/SwiftyJSON'
+source 'https://github.com/blakewatters/ISO8601DateFormatterValueTransformer'
+source 'https://github.com/matheusfrozzi/SwiftHTTP'
+
+platform :ios, "10.0"
+use_frameworks!
+
+target 'StudyAssistant' do
+pod 'SwiftHTTP', :git => 'https://github.com/matheusfrozzi/SwiftHTTP'
+pod 'SwiftyJSON', :git => 'https://github.com/jeneumeier/SwiftyJSON', :branch => 'swift3-gm'
+pod 'GoogleMaps'
+pod 'AFNetworking'
+pod 'ISO8601DateFormatterValueTransformer'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
+end
